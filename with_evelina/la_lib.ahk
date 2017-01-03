@@ -1,6 +1,5 @@
 SendCommand(window, command)
 {
- tooltip, %window% %command%
  clipboard =STR %window% %command%
  return
 }
