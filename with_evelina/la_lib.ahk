@@ -1,5 +1,6 @@
 SendCommand(window, command)
 {
+ tooltip, %window% %command%
  clipboard =STR %window% %command%
  return
 }
@@ -12,29 +13,29 @@ SendKeyPress(window, key)
 
 UseSkill(window, skill)
 {
-	SendCommand(%window%, "/useskill %skill%")
+	SendCommand(window, "/useskill "skill)
 	return
 }
 
 Target(window, nick)
 {
-	SendCommand(%window%, "/target %nick%")
+	SendCommand(window, "/target "nick)
 	return
 }
 
 Sit(window)
 {
-	SendCommand(%window%, "/sit")
+	SendCommand(window, "/sit")
 	return
 }
 
 Stand(window)
 {
-	SendCommand(%window%, "/stand")
+	SendCommand(window, "/stand")
 	return
 }
 
 SendInviteParty(window, nick)
 {
- SendCommand(%window%, "/invite %nick%")
+ SendCommand(window, "/invite "nick)
 }
