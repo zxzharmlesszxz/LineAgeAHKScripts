@@ -1,12 +1,7 @@
-#InstallKeybdHook
-#UseHook ON
 #MaxThreadsPerHotkey 1
 #MaxThreadsBuffer On
 
-#Include %A_ScriptDir%\la_lib.ahk
-
-RAlt & 1::clipboard =SET 1
-RAlt & 2::clipboard =SET 2
+#Include %A_LineFile%\..\la_lib.ahk
 
 ;SET 1 bd
 ;SET 2 svs
@@ -33,29 +28,29 @@ init()
 ds()
 {
 	global members
-	stand(members["svs"].window)
+	Stand(members["svs"].window)
 	Sleep 750
-	stand(members["bd"].window)
+	Stand(members["bd"].window)
 	Sleep 750
-	use_skill(members["svs"].window,"Song of Renewal")
+	UseSkill(members["svs"].window,"Song of Renewal")
 	Sleep 750
-	use_skill(members["bd"].window,"Dance of Fury")
+	UseSkill(members["bd"].window,"Dance of Fury")
 	Sleep 1150
-	use_skill(members["svs"].window,"Song of Champion")
+	UseSkill(members["svs"].window,"Song of Champion")
 	Sleep 750
-	use_skill(members["bd"].window,"Dance of Fire")
+	UseSkill(members["bd"].window,"Dance of Fire")
 	Sleep 1150
-	use_skill(members["svs"].window,"Song of Hunter")
+	UseSkill(members["svs"].window,"Song of Hunter")
 	Sleep 750
-	use_skill(members["bd"].window,"Dance of the Warrior")
+	UseSkill(members["bd"].window,"Dance of the Warrior")
 	Sleep 1150
-	use_skill(members["svs"].window,"Song of Earth")
+	UseSkill(members["svs"].window,"Song of Earth")
 	Sleep 750
-	use_skill(members["bd"].window,"Dance of the Vampire")
+	UseSkill(members["bd"].window,"Dance of the Vampire")
 	Sleep 750
-	sit(members["svs"].window)
+	Sit(members["svs"].window)
 	Sleep 750
-	sit(members["bd"].window)
+	Sit(members["bd"].window)
 	Sleep 750
 	return
 }
@@ -63,17 +58,32 @@ ds()
 shadow()
 {
 	global members
-	stand(members["bd"].window)
+	Stand(members["bd"].window)
 	Sleep 750
-	use_skill(members["bd"].window,"Dance of Shadows")
+	UseSkill(members["bd"].window,"Dance of Shadows")
 	Sleep 3000
-	sit(members["bd"].window)
+	Sit(members["bd"].window)
 	Sleep 750
 	return
 }
 
 init()
 
-Numpad2::ds()
+#InstallKeybdHook
+#UseHook ON
 
-Numpad3::shadow()
+RAlt & 1::
+ clipboard =SET 1
+return
+
+RAlt & 2::
+ clipboard =SET 2
+return
+
+Numpad2::
+ ds()
+return
+
+Numpad3::
+ shadow()
+return
